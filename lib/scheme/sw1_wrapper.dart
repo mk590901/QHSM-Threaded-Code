@@ -7,36 +7,16 @@ class Sw1Wrapper {
 
 	QHsmHelper	helper_ = QHsmHelper('SWITCH');
 
-	//late String currentState = '';
-	late String currentState = 'OFF';
-
 	final ISwitch _switch;
 	static bool process = false;
-	//Map<String, void Function()> lookupTable = <String, void Function()>{};
+
 	Sw1Wrapper (this._switch) {
-		//createWalker();
 		createHelper();
 	}
 
 	bool inLoop() {
 		return process;
 	}
-
-	// void createWalker() {
-	// 	lookupTable[createKey("SWITCH","Q_ENTRY")]	= SWITCHEntry;
-	// 	lookupTable[createKey("SWITCH","Q_EXIT")]	= SWITCHExit;
-	// 	lookupTable[createKey("SWITCH","Q_INIT")]	= SWITCHInit;
-	// 	lookupTable[createKey("IDLE","Q_ENTRY")]	= IDLEEntry;
-	// 	lookupTable[createKey("IDLE","Q_EXIT")]	= IDLEExit;
-	// 	lookupTable[createKey("IDLE","Q_INIT")]	= IDLEInit;
-	// 	lookupTable[createKey("IDLE","RESET")]	= IDLEReset;
-	// 	lookupTable[createKey("ON","Q_ENTRY")]	= ONEntry;
-	// 	lookupTable[createKey("ON","Q_EXIT")]	= ONExit;
-	// 	lookupTable[createKey("ON","TURN")]	= ONTurn;
-	// 	lookupTable[createKey("OFF","Q_ENTRY")]	= OFFEntry;
-	// 	lookupTable[createKey("OFF","Q_EXIT")]	= OFFExit;
-	// 	lookupTable[createKey("OFF","TURN")]	= OFFTurn;
-	// }
 
 	void SWITCHEntry() {
 		print("inside SWITCHEntry");
@@ -119,81 +99,9 @@ class Sw1Wrapper {
 		helper_.run(helper_.getState(), 'init');
 	}
 
-	// void doreset() {
-	// 	helper_.run(helper_.getState(), 'RESET');
-	// }
-	//
-	// void doturn() {
-	// 	helper_.run(helper_.getState(), 'TURN');
-	// }
-
 	void run(String eventName) {
 		helper_.run(helper_.getState(), eventName);
 	}
-
-	// void resetChain() {
-	// 	if (currentState == 'OFF') {
-	// 		OFFResetChain();
-	// 	}
-	// 	else
-	// 	if (currentState == 'ON') {
-	// 		ONResetChain();
-	// 	}
-	// }
-
-	// void turnChain() {
-	// 	if (currentState == 'OFF') {
-	// 		OFFTurnChain();
-	// 	}
-	// 	else
-	// 	if (currentState == 'ON') {
-	// 		ONTurnChain();
-	// 	}
-	// }
-
-	// void OFFResetChain() {
-	// 	Future.microtask(() {
-	// 		IDLEReset();
-	// 		OFFExit();
-	// 		IDLEExit();
-	// 		SWITCHInit();
-	// 		IDLEEntry();
-	// 		IDLEInit();
-	// 		OFFEntry();
-	// 		currentState = 'OFF';
-	// 	});
-	// }
-
-	// void OFFTurnChain() {
-	// 	Future.microtask(() {
-	// 		OFFTurn();
-	// 		OFFExit();
-	// 		ONEntry();
-	// 		currentState = 'ON';
-	// 	});
-	// }
-
-	// void ONTurnChain() {
-	// 	Future.microtask(() {
-	// 		ONTurn();
-	// 		ONExit();
-	// 		OFFEntry();
-	// 		currentState = 'OFF';
-	// 	});
-	// }
-
-	// void ONResetChain() {
-	// 	Future.microtask(() {
-	// 		IDLEReset();
-	// 		ONExit();
-	// 		IDLEExit();
-	// 		SWITCHInit();
-	// 		IDLEEntry();
-	// 		IDLEInit();
-	// 		OFFEntry();
-	// 		currentState = 'OFF';
-	// 	});
-	// }
 
   void createHelper() {
 		helper_.insert('SWITCH', 'init', ThreadedCodeExecutor(helper_, 'OFF', [
