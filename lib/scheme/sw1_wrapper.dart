@@ -18,29 +18,29 @@ class Sw1Wrapper {
 		return process;
 	}
 
-	void SWITCHEntry() {
-		print("inside SWITCHEntry");
-	}
+	// void SWITCHEntry() {
+	// 	print("inside SWITCHEntry");
+	// }
 
-	void SWITCHExit() {
-		print("inside SWITCHExit");
-	}
+	// void SWITCHExit() {
+	// 	print("inside SWITCHExit");
+	// }
 
-	void SWITCHInit() {
-		print("inside SWITCHInit");
-	}
+	// void SWITCHInit() {
+	// 	print("inside SWITCHInit");
+	// }
 
-	void IDLEEntry() {
-		print("inside IDLEEntry");
-	}
+	// void IDLEEntry() {
+	// 	print("inside IDLEEntry");
+	// }
 
-	void IDLEExit() {
-		print("inside IDLEExit");
-	}
+	// void IDLEExit() {
+	// 	print("inside IDLEExit");
+	// }
 
-	void IDLEInit() {
-		print("inside IDLEInit");
-	}
+	// void IDLEInit() {
+	// 	print("inside IDLEInit");
+	// }
 
 	void IDLEReset() {
 		process = false;
@@ -54,13 +54,13 @@ class Sw1Wrapper {
 		//});
 	}
 
-	void ONExit() {
-		print("inside ONExit");
-	}
+	// void ONExit() {
+	// 	print("inside ONExit");
+	// }
 
-	void ONTurn() {
-		print("inside ONTurn");
-	}
+	// void ONTurn() {
+	// 	print("inside ONTurn");
+	// }
 
 	void OFFEntry() {
 		print("inside OFFEntry [$process]");
@@ -69,9 +69,9 @@ class Sw1Wrapper {
 		//});
 	}
 
-	void OFFExit() {
-		print("inside OFFExit");
-	}
+	// void OFFExit() {
+	// 	print("inside OFFExit");
+	// }
 
 	void OFFTurn() {
 		process = true;
@@ -105,42 +105,42 @@ class Sw1Wrapper {
 
   void createHelper() {
 		helper_.insert('SWITCH', 'init', ThreadedCodeExecutor(helper_, 'OFF', [
-			SWITCHEntry,
-			SWITCHInit,
-			IDLEEntry,
-			IDLEInit,
+			// SWITCHEntry,
+			// SWITCHInit,
+			// IDLEEntry,
+			// IDLEInit,
 			OFFEntry,
 		]));
 
 		helper_.insert('OFF', 'RESET', ThreadedCodeExecutor(helper_, 'OFF', [
 			IDLEReset,
-			OFFExit,
-			IDLEExit,
-			SWITCHInit,
-			IDLEEntry,
-			IDLEInit,
+			// OFFExit,
+			// IDLEExit,
+			// SWITCHInit,
+			// IDLEEntry,
+			// IDLEInit,
 			OFFEntry,
 		]));
 
 		helper_.insert('ON', 'RESET', ThreadedCodeExecutor(helper_, 'OFF', [
 			IDLEReset,
-			ONExit,
-			IDLEExit,
-			SWITCHInit,
-			IDLEEntry,
-			IDLEInit,
+			// ONExit,
+			// IDLEExit,
+			// SWITCHInit,
+			// IDLEEntry,
+			// IDLEInit,
 			OFFEntry,
 		]));
 
 		helper_.insert('ON', 'TURN', ThreadedCodeExecutor(helper_, 'OFF', [
-			ONTurn,
-			ONExit,
+			// ONTurn,
+			// ONExit,
 			OFFEntry,
 		]));
 
 		helper_.insert('OFF', 'TURN', ThreadedCodeExecutor(helper_, 'ON', [
 			OFFTurn,
-			OFFExit,
+			// OFFExit,
 			ONEntry,
 		]));
 
