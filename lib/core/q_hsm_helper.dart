@@ -1,4 +1,4 @@
-import 'interfaces/i_q_hsm_state_machine_helper.dart';
+import 'i_q_hsm_state_machine_helper.dart';
 import 'threaded_code_executor.dart';
 import 'utils.dart';
 
@@ -22,7 +22,6 @@ class QHsmHelper implements IQHsmStateMachineHelper {
     ThreadedCodeExecutor? executor = _container[key];
     executor?.execute();
   }
-
 
   @override
   String getState() {

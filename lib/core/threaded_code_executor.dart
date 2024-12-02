@@ -1,4 +1,4 @@
-import 'interfaces/i_q_hsm_state_machine_helper.dart';
+import 'i_q_hsm_state_machine_helper.dart';
 
 class ThreadedCodeExecutor {
 

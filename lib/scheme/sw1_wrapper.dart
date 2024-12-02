@@ -1,7 +1,6 @@
 import '../interfaces/i_switch.dart';
-import '../q_hsm_helper.dart';
-import '../threaded_code_executor.dart';
-import '../utils.dart';
+import '../core/q_hsm_helper.dart';
+import '../core/threaded_code_executor.dart';
 
 class Sw1Wrapper {
 
@@ -95,7 +94,7 @@ class Sw1Wrapper {
 
 	}
 
-	void initChain() {
+	void init() {
 		helper_.run(helper_.getState(), 'init');
 	}
 

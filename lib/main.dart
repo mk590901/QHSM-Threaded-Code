@@ -144,7 +144,7 @@ class AppHomePage extends StatelessWidget implements ISwitch {
 
     void initHsmEngine() {
       hsmWrapper = Sw1Wrapper(this);
-      hsmWrapper.initChain();
+      hsmWrapper.init();
     }
 
     Future.microtask(() {
