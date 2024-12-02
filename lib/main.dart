@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'interfaces/i_switch.dart';
-import 'scheme/sw1_wrapper.dart';
+import 'scheme/sw1_helper.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_text_rounded_button.dart';
 
@@ -31,7 +31,7 @@ class AppHomePage extends StatelessWidget implements ISwitch {
   late FlatAdvancedRoundedSwitch flatSwitch;
   late FlatTextRoundedButton turnButton;
 
-  late Sw1Wrapper hsmWrapper = Sw1Wrapper(this);
+  late Sw1Helper hsmHelper = Sw1Helper(this);
 
   AppHomePage({super.key, required this.title});
 
@@ -132,7 +132,7 @@ class AppHomePage extends StatelessWidget implements ISwitch {
       borderWidth: 0.5,
       borderRadius: 8,
       onUpAction: () {
-        if (hsmWrapper.inLoop()) {
+        if (hsmHelper.inLoop()) {
          return;
         }
         done('TURN');
@@ -143,8 +143,8 @@ class AppHomePage extends StatelessWidget implements ISwitch {
     );
 
     void initHsmEngine() {
-      hsmWrapper = Sw1Wrapper(this);
-      hsmWrapper.init();
+      //hsmWrapper = /*Sw1Wrapper*/Sw1Helper(this);
+      hsmHelper.init();
     }
 
     Future.microtask(() {
@@ -187,7 +187,7 @@ class AppHomePage extends StatelessWidget implements ISwitch {
 
   @override
   void done(String eventName) {
-    hsmWrapper.run(eventName);
+    hsmHelper.run(eventName);
   }
 
   @override

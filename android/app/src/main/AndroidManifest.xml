@@ -2,7 +2,7 @@
     <application
         android:label="QQHsm/TC"
         android:name="${applicationName}"
-        android:icon="@mipmap/thread">
+        android:icon="@mipmap/threads">
         <activity
             android:name=".MainActivity"
             android:exported="true"
