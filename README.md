@@ -1,16 +1,8 @@
 # QHSM Threaded Code Sample
 
-A new Flutter project.
+The presented application is identical in appearance to the application https://github.com/mk590901/QQHsm-Switch-Dart, although it lacks the HSM runtime framework. It's replaced by the Sw1Helper class (file sw1_helper.dart).
 
-## Getting Started
+## Movie
 
-This project is a starting point for a Flutter application.
+https://github.com/user-attachments/assets/98f63d44-4947-40ea-b828-12780fd38da8
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
