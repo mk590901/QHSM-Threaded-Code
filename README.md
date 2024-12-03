@@ -1,4 +1,4 @@
-# tc2
+# QHSM Threaded Code Sample
 
 A new Flutter project.
 
