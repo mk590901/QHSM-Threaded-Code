@@ -143,7 +143,6 @@ class AppHomePage extends StatelessWidget implements ISwitch {
     );
 
     void initHsmEngine() {
-      //hsmWrapper = /*Sw1Wrapper*/Sw1Helper(this);
       hsmHelper.init();
     }
 
